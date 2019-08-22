@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container text-right">
+        <a href="{% if user.is_authenticated %}
+                    {% url 'cadastro_list' %}
+                 {% else %}
+                    {% url 'home' %}
+                 {% endif %}"
+           class="btn bn-sm btn-outline-primary">
+           <i class="fas fa-arrow-alt-circle-left"></i> Voltar</a>
+    </div>
+
+    <div class="container bg-dark text-light text-center">
+        <h1>Parabéns!</h1>
+        <h2>Código: {{object.codigo}}</h2>
+        <h2>Id. do participante: {{object.id}}</h2>
+        <h2>Nome do participante: {{object.nome_completo}}</h2>
+        <h3>Email: {{ object.email }}</h3>
+        <h4>Telefone: {{ object.telefone }}</h4>
+    </div>
+{% endblock %}
