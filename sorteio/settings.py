@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     
     'apps.cadastros',
     'apps.entrada',
+    'apps.patrocinadores',
     
 ]
 

@@ -9,6 +9,7 @@ verify_ssl = true
 django = "*"
 django-bootstrap-form = "*"
 django-import-export = "*"
+pillow = "*"
 
 [requires]
 python_version = "3.7"
