@@ -4,6 +4,8 @@
 
 {% block content %}
 
+
+
     <div class="container text-right">
         <a href="{% if user.is_authenticated %} {% url 'cadastro_list' %} {% else %} {% url 'home' %} {% endif %}" class="btn bn-sm btn-outline-primary">
            <i class="fas fa-arrow-alt-circle-left"></i> Voltar</a>
@@ -22,15 +24,48 @@
     <div>
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        {{ form|bootstrap }}
 
-        <div class="form-group text-right">
-        {% if object %}
-            <input type="submit" class="btn btn-outline-primary" value="Atualizar">
-        {% else %}
-            <input type="submit"  class="btn btn-outline-primary" value="Gravar">
-        {% endif %}
+       {{ form.nome_completo|bootstrap }}
+       {{ form.email|bootstrap}}
+       {{ form.telefone|bootstrap}}
+
+
+        <div class="row">
+            <div class="col-1" onclick="ligaBotao()">
+                {{ form.leitura|bootstrap}}
+            </div>
+            <div class="col-11">
+                Declaro que li e estou de acordo com o <a href="{% url 'regulamento' %}">Regulamento</a> e <a
+                    href="{% url 'politica' %}">Política de Privacidade</a>
+            </div>
         </div>
+
+
+        {% if object %}
+            <div id="gravar" class="container text-right">
+                <input type="submit" class="btn btn-outline-primary" value="Atualizar">
+            </div>
+        {% else %}
+            <div id="gravar" class="container text-right">
+                <input type="submit"  class="btn btn-outline-primary" value="Gravar">
+            </div>
+        {% endif %}
+
+
+        <script>
+            var g = document.getElementById("gravar");
+            g.style.display = "none";
+
+            function ligaBotao() {
+              var x = document.getElementById("gravar");
+              if (x.style.display === "none") {
+                x.style.display = "block";
+              } else {
+                x.style.display = "none";
+              }
+            }
+
+        </script>
 
     </form>
     </div>

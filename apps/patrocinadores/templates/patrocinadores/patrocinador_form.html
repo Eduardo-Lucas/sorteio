@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% load bootstrap %}
+
+{% block content %}
+
+    <div class="container text-right">
+        <a href="{% if user.is_authenticated %} {% url 'patrocinador_list' %} {% else %} {% url 'home' %} {% endif %}" class="btn bn-sm btn-outline-primary">
+           <i class="fas fa-arrow-alt-circle-left"></i> Voltar</a>
+    </div>
+
+
+      <div class="bg-danger text-light">
+            {% if object %}
+                <h5>Atualiza Patrocinador</h5>
+            {% else %}
+                <h5>Cadastra Patrocinador</h5>
+            {% endif %}
+      </div>
+
+
+    <div>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form|bootstrap }}
+
+        <div class="form-group text-right">
+            {% if object %}
+                <input type="submit" class="btn btn-outline-primary" value="Atualizar">
+            {% else %}
+                <input type="submit"  class="btn btn-outline-primary" value="Gravar">
+            {% endif %}
+        </div>
+
+    </form>
+    </div>
+
+
+{% endblock %}

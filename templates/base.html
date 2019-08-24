@@ -43,7 +43,10 @@
                     <a class="nav-link" href="{% url 'cadastro_create' %}">Participar</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Regulamento</a>
+                    <a class="nav-link" href="{% url 'regulamento' %}">Regulamento</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'patrocinador_list' %}">Patrocinadores</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Dúvidas</a>
@@ -66,6 +69,7 @@
         {% include 'messages.html' %}
         {% block content %}
         {% endblock %}
+        {% include 'footer.html' %}
     </div>
 
 

@@ -25,7 +25,7 @@ class CadastroListView(ListView):
         else:
             object_list = self.model.objects.all()
         
-        paginator = Paginator(object_list, 15)
+        paginator = Paginator(object_list, 10)
         
         page = self.request.GET.get('page')
         try:
@@ -52,7 +52,7 @@ class CadastroDetailView(DetailView):
 
 class CadastroCreateView(SuccessMessageMixin, CreateView):
     model = Cadastro
-    fields = ['nome_completo', 'email', 'telefone', ]
+    fields = ['nome_completo', 'email', 'telefone', 'leitura', ]
     success_message = 'O cadastro de %(nome_completo)s foi realizado com sucesso.'
     
     def get_queryset(self):
@@ -66,7 +66,7 @@ class CadastroCreateView(SuccessMessageMixin, CreateView):
 
 class CadastroUpdateView(SuccessMessageMixin, UpdateView):
     model = Cadastro
-    fields = ['nome_completo', 'email', 'telefone', ]
+    fields = ['nome_completo', 'email', 'telefone', 'leitura', ]
     success_message = 'O cadastro de %(nome_completo)s foi alterado com sucesso.'
 
 

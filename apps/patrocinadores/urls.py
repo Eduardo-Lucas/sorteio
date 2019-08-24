@@ -1,14 +1,13 @@
 from django.urls import path
 
-from apps.cadastros.views import CadastroListView, CadastroDetailView, CadastroCreateView, CadastroUpdateView, \
-    CadastroDeleteView
+from apps.patrocinadores.views import PatrocinadorListView, PatrocinadorDetailView, PatrocinadorCreateView, \
+    PatrocinadorUpdateView, PatrocinadorDeleteView
 
 urlpatterns = [
-    
-    # path('list', CadastroListView.as_view(), name='cadastro_list'),
-    # path('detail/<int:pk>', CadastroDetailView.as_view(), name='cadastro_detail'),
-    # path('create', CadastroCreateView.as_view(), name='cadastro_create'),
-    # path('edit/<int:pk>', CadastroUpdateView.as_view(), name='cadastro_edit'),
-    # path('delete/<int:pk>', CadastroDeleteView.as_view(), name='cadastro_delete'),
+    path('list', PatrocinadorListView.as_view(), name='patrocinador_list'),
+    path('detail/<int:pk>', PatrocinadorDetailView.as_view(), name='patrocinador_detail'),
+    path('create', PatrocinadorCreateView.as_view(), name='patrocinador_create'),
+    path('edit/<int:pk>', PatrocinadorUpdateView.as_view(), name='patrocinador_edit'),
+    path('delete/<int:pk>', PatrocinadorDeleteView.as_view(), name='patrocinador_delete'),
     
 ]

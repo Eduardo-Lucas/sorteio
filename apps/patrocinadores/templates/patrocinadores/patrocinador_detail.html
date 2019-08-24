@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container text-right">
+        <a href="{% if user.is_authenticated %}
+                    {% url 'patrocinador_list' %}
+                 {% else %}
+                    {% url 'home' %}
+                 {% endif %}"
+           class="btn bn-sm btn-outline-primary">
+           <i class="fas fa-arrow-alt-circle-left"></i> Voltar</a>
+    </div>
+
+    <div class="container bg-dark text-light text-center">
+
+
+        <h2>Id. do Patrocinador: {{object.id}}</h2>
+        <h2>Nome do Patrocinador: {{object.nome}}</h2>
+        <h3>Logo: {{ object.foto }}</h3>
+
+    </div>
+{% endblock %}

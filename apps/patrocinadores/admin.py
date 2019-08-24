@@ -1,3 +1,9 @@
 from django.contrib import admin
+from import_export.admin import ImportExportModelAdmin
 
-# Register your models here.
+from apps.patrocinadores.models import Patrocinador
+
+
+@admin.register(Patrocinador)
+class PatrocinadorResource(ImportExportModelAdmin):
+    pass

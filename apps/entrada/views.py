@@ -11,3 +11,12 @@ def como_participar(request):
 
 def premio(request):
     return render(request, 'entrada/premio.html')
+
+
+def regulamento(request):
+    return render(request, 'entrada/regulamento.html')
+
+
+def politica(request):
+    return render(request, 'entrada/politica.html')
+

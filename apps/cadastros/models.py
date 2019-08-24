@@ -13,6 +13,7 @@ class Cadastro(models.Model):
     cadastrado_em = models.DateTimeField(auto_now_add=True)
     codigo = models.UUIDField(primary_key=False
                               , default=uuid.uuid4, editable=False)
+    leitura = models.BooleanField(default=False, )
     
     def __str__(self):
         return self.nome_completo
