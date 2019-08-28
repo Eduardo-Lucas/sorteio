@@ -10,6 +10,9 @@ django = "*"
 django-bootstrap-form = "*"
 django-import-export = "*"
 pillow = "*"
+gunicorn = "*"
+psycopg2-binary = "*"
+python-decouple = "*"
 
 [requires]
 python_version = "3.7"

@@ -19,5 +19,6 @@
         <h2>Nome do participante: {{object.nome_completo}}</h2>
         <h3>Email: {{ object.email }}</h3>
         <h4>Telefone: {{ object.telefone }}</h4>
+        <h5>Cadastrado em : {{object.cadastrado_em|date:"d/m/Y H:i"}}</h5>
     </div>
 {% endblock %}

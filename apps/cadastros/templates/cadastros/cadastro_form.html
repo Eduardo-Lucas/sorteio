@@ -40,32 +40,9 @@
             </div>
         </div>
 
-
-        {% if object %}
-            <div id="gravar" class="container text-right">
-                <input type="submit" class="btn btn-outline-primary" value="Atualizar">
-            </div>
-        {% else %}
-            <div id="gravar" class="container text-right">
-                <input type="submit"  class="btn btn-outline-primary" value="Gravar">
-            </div>
-        {% endif %}
-
-
-        <script>
-            var g = document.getElementById("gravar");
-            g.style.display = "none";
-
-            function ligaBotao() {
-              var x = document.getElementById("gravar");
-              if (x.style.display === "none") {
-                x.style.display = "block";
-              } else {
-                x.style.display = "none";
-              }
-            }
-
-        </script>
+        <div class="container text-right">
+            <input type="submit"  class="btn btn-outline-primary" value="Gravar">
+        </div>
 
     </form>
     </div>

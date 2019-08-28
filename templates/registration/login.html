@@ -2,13 +2,12 @@
 {% load bootstrap %}
 
 {% block content %}
-    <div class="container">
-        <h1>Login</h1>
+    <div class="container text-center text-light bg-dark">
+        <h1>Entrar</h1>
     </div>
     <form method="post">
       {% csrf_token %}
-      {{ form.username|bootstrap }}
-      {{ form.password|bootstrap }}
+      {{ form|bootstrap }}
       <button type="submit" class="btn btn-primary btn-block">Entrar</button>
     </form>
 
