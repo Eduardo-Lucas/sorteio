@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+{% block content %}
+
+    <div class="container bg-danger text-light text-center">
+        <h4>Contato</h4>
+
+        <form method="POST">
+            {% csrf_token %}
+
+<div class="row">
+                <div class="col-sm-6">
+                        {{ form.nome_completo|bootstrap}}
+                </div>
+                <div class="col-sm-6">
+                        {{ form.email|bootstrap}}
+                </div>
+</div>
+            <h5>Tem alguma dúvida?</h5>
+        <h6>Gostaríamos de saber sua opinião. Envie uma  mensagem e nós responderemos assim que possível</h6>
+        <hr>
+            <div class="row">
+                <div class="col-sm-12">
+                    {{ form.mensagem|bootstrap}}
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+
+{% endblock %}
