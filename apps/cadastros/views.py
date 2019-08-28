@@ -5,6 +5,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, ListView, DetailView, DeleteView, UpdateView
 
+from apps.cadastros.forms import CadastroForm
 from apps.cadastros.models import Cadastro
 
 
@@ -52,7 +53,7 @@ class CadastroDetailView(DetailView):
 
 class CadastroCreateView(SuccessMessageMixin, CreateView):
     model = Cadastro
-    fields = ['nome_completo', 'email', 'telefone', 'leitura', ]
+    form_class = CadastroForm
     success_message = 'O cadastro de %(nome_completo)s foi realizado com sucesso.'
     
     def get_queryset(self):
@@ -66,7 +67,7 @@ class CadastroCreateView(SuccessMessageMixin, CreateView):
 
 class CadastroUpdateView(SuccessMessageMixin, UpdateView):
     model = Cadastro
-    fields = ['nome_completo', 'email', 'telefone', 'leitura', ]
+    form_class = CadastroForm
     success_message = 'O cadastro de %(nome_completo)s foi alterado com sucesso.'
 
 
