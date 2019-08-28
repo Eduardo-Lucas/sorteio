@@ -8,17 +8,19 @@
         <form method="POST">
             {% csrf_token %}
 
-<div class="row">
+            <div class="row">
                 <div class="col-sm-6">
                         {{ form.nome_completo|bootstrap}}
                 </div>
                 <div class="col-sm-6">
                         {{ form.email|bootstrap}}
                 </div>
-</div>
+            </div>
+
             <h5>Tem alguma dúvida?</h5>
-        <h6>Gostaríamos de saber sua opinião. Envie uma  mensagem e nós responderemos assim que possível</h6>
-        <hr>
+            <h6>Gostaríamos de saber sua opinião. Envie uma  mensagem e nós responderemos assim que possível</h6>
+            <hr>
+
             <div class="row">
                 <div class="col-sm-12">
                     {{ form.mensagem|bootstrap}}
