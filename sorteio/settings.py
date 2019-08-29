@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+import dj_database_url
 from django.contrib import messages
 from decouple import config
 
@@ -23,10 +24,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '2#_((p!v3y#nh*85jvv6*lvc36az8of-!or_5q5_&+&5f99jax'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False  # Production
+# DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1']
 
@@ -84,23 +86,30 @@ WSGI_APPLICATION = 'sorteio.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-DATABASES = {
-   'default': {
-       
-       'ENGINE': 'django.db.backends.postgresql_psycopg2',
-       
-       # Or path to database file if using sqlite3.
-       'NAME': config('DB_NAME'),
-       'USER': config('DB_USER'),
-       'PASSWORD': config('DB_PASSWORD'),
+if not DEBUG:
+    DATABASES = {
+        'default': dj_database_url.config(
+            default=config('DATABASE_URL')
+        )
+    }
+else:
+    DATABASES = {
+       'default': {
 
-       # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
-       'HOST': '127.0.0.1',
+           'ENGINE': 'django.db.backends.postgresql_psycopg2',
 
-       # Set to empty string for default
-       'PORT': '',
-   }
-}
+           # Or path to database file if using sqlite3.
+           'NAME': config('DB_NAME'),
+           'USER': config('DB_USER'),
+           'PASSWORD': config('DB_PASSWORD'),
+
+           # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+           'HOST': '',
+
+           # Set to empty string for default
+           'PORT': '',
+       }
+    }
 
 # DATABASES = {
 #     'default': {
