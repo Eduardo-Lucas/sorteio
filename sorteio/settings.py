@@ -30,7 +30,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = False  # Production
 # DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'sorteio-qrcomprar.herokuapp.com', ]
+ALLOWED_HOSTS = ['sorteio-qrcomprar.herokuapp.com', ]
 
 
 # Application definition
