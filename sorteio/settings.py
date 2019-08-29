@@ -61,7 +61,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     
-    'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
@@ -89,28 +88,28 @@ WSGI_APPLICATION = 'sorteio.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-if not DEBUG:
-    DATABASES = {
-        'default': dj_database_url.config()
-    }
-else:
-    DATABASES = {
-       'default': {
 
-           'ENGINE': 'django.db.backends.postgresql_psycopg2',
+DATABASES = {
+    'default': dj_database_url.config()
+}
 
-           # Or path to database file if using sqlite3.
-           'NAME': config('DB_NAME'),
-           'USER': config('DB_USER'),
-           'PASSWORD': config('DB_PASSWORD'),
-
-           # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
-           'HOST': '',
-
-           # Set to empty string for default
-           'PORT': '',
-       }
-    }
+# DATABASES = {
+#    'default': {
+#
+#        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#
+#        # Or path to database file if using sqlite3.
+#        'NAME': config('DB_NAME'),
+#        'USER': config('DB_USER'),
+#        'PASSWORD': config('DB_PASSWORD'),
+#
+#        # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+#        'HOST': '',
+#
+#        # Set to empty string for default
+#        'PORT': '',
+#    }
+# }
 
 # DATABASES = {
 #     'default': {
