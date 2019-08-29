@@ -1,5 +1,4 @@
-from django.forms import ModelForm
-from django.core.exceptions import ValidationError
+from django.forms import ModelForm, forms
 from apps.cadastros.models import Cadastro
 
 
@@ -13,4 +12,6 @@ class CadastroForm(ModelForm):
         cleaned_data = super().clean()
         leitura = cleaned_data.get("leitura")
         if not leitura:
-            raise ValidationError({'leitura': 'Confirme que leu o Regulamento e a Política de Privacidade.'})
+            msg = 'Confirme que leu o Regulamento e a Política de Privacidade.'
+            self.add_error('leitura', msg)
+            # raise forms.ValidationError({'leitura': 'Confirme que leu o Regulamento e a Política de Privacidade.'})

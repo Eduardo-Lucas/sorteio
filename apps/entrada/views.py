@@ -7,7 +7,11 @@ from apps.entrada.forms import ContactForm
 
 
 def home(request):
-    return render(request, 'entrada/index.html')
+    context = {
+        'url': 'www.usesoft.com.br',
+    }
+    
+    return render(request, 'entrada/index.html', context)
 
 
 def como_participar(request):

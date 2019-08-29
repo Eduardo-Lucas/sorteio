@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load social_share %}
+
 {% block content %}
 
     <div class="jumbotron bg-dark text-light">
-        <h1 class="display-4">Bem-vindo ao Sorteio XYZ</h1>
+        <h1 class="display-5">Bem-vindo ao Sorteio XYZ</h1>
         <p class="lead">Faça seu cadastro para concorrer a prêmios.</p>
         <hr class="my-4">
         <a class="btn btn-outline-danger btn-lg" href="{% url 'cadastro_create' %}" role="button">Faça o Cadastro</a>
@@ -13,8 +15,13 @@
             <a class="btn btn-outline-info btn-lg" href="{% url 'patrocinador_list' %}"
                role="button">Lista de Patrocinadores</a>
         {% endif %}
+        <hr>
+
+
     </div>
 
+
+<hr>
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
