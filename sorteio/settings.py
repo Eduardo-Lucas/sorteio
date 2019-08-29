@@ -27,8 +27,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = False  # Production
-DEBUG = True
+DEBUG = False  # Production
+# DEBUG = True
 
 ALLOWED_HOSTS = ['sorteio-qrcomprar.herokuapp.com', ]
 
