@@ -13,7 +13,7 @@ pillow = "*"
 gunicorn = "*"
 psycopg2-binary = "*"
 python-decouple = "*"
-django-social-share = "*"
+whitenoise = "*"
 
 [requires]
 python_version = "3.7"
