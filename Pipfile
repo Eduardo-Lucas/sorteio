@@ -15,6 +15,7 @@ psycopg2-binary = "*"
 python-decouple = "*"
 whitenoise = "*"
 dj-database-url = "*"
+django-grappelli = "*"
 
 [requires]
 python_version = "3.7"
