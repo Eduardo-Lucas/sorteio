@@ -85,8 +85,8 @@ WSGI_APPLICATION = 'sorteio.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-# DEBUG = False  # Production
-DEBUG = True  # Development
+DEBUG = False  # Production
+# DEBUG = True  # Development
 
 if not DEBUG:
     DATABASES = {
