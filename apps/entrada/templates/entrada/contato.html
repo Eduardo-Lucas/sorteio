@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load bootstrap %}
+
 {% block content %}
 
     <div class="container bg-danger text-light text-center">
@@ -10,10 +10,10 @@
 
             <div class="row">
                 <div class="col-sm-6">
-                        {{ form.nome_completo|bootstrap}}
+                        {{ form.nome_completo}}
                 </div>
                 <div class="col-sm-6">
-                        {{ form.email|bootstrap}}
+                        {{ form.email}}
                 </div>
             </div>
 
@@ -23,7 +23,7 @@
 
             <div class="row">
                 <div class="col-sm-12">
-                    {{ form.mensagem|bootstrap}}
+                    {{ form.mensagem}}
                 </div>
             </div>
         </form>

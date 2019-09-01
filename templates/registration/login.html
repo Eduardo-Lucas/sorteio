@@ -1,5 +1,14 @@
 {% extends 'base.html' %}
-{% load bootstrap %}
+{# Load the tag library #}
+{% load bootstrap4 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+{% bootstrap_alert "Something went wrong" alert_type='error' %}
 
 {% block content %}
     <div class="container text-center text-light bg-dark">
@@ -7,7 +16,9 @@
     </div>
     <form method="post">
       {% csrf_token %}
-      {{ form|bootstrap }}
+      {% bootstrap_form form %}
+
+
       <button type="submit" class="btn btn-primary btn-block">Entrar</button>
     </form>
 

@@ -7,7 +7,6 @@ verify_ssl = true
 
 [packages]
 django = "*"
-django-bootstrap-form = "*"
 django-import-export = "*"
 pillow = "*"
 gunicorn = "*"
@@ -15,7 +14,7 @@ psycopg2-binary = "*"
 python-decouple = "*"
 whitenoise = "*"
 dj-database-url = "*"
-django-grappelli = "*"
+django-bootstrap4 = "*"
 
 [requires]
 python_version = "3.7"

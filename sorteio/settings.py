@@ -26,10 +26,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False  # Production
-# DEBUG = True
 
-ALLOWED_HOSTS = ['sorteio-qrcomprar.herokuapp.com', ]
+
+ALLOWED_HOSTS = ['127.0.0.1', 'sorteio-qrcomprar.herokuapp.com', ]
 
 
 # Application definition
@@ -41,8 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
-    'bootstrapform',
+    'bootstrap4',
     'import_export',
     
     'apps.cadastros',
@@ -87,35 +85,31 @@ WSGI_APPLICATION = 'sorteio.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+# DEBUG = False  # Production
+DEBUG = True  # Development
 
-DATABASES = {
-    'default': dj_database_url.config()
-}
-
-# DATABASES = {
-#    'default': {
-#
-#        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#
-#        # Or path to database file if using sqlite3.
-#        'NAME': config('DB_NAME'),
-#        'USER': config('DB_USER'),
-#        'PASSWORD': config('DB_PASSWORD'),
-#
-#        # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
-#        'HOST': '',
-#
-#        # Set to empty string for default
-#        'PORT': '',
-#    }
-# }
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
+if not DEBUG:
+    DATABASES = {
+        'default': dj_database_url.config()
+    }
+else:
+    DATABASES = {
+       'default': {
+    
+           'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    
+           # Or path to database file if using sqlite3.
+           'NAME': config('DB_NAME'),
+           'USER': config('DB_USER'),
+           'PASSWORD': config('DB_PASSWORD'),
+    
+           # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+           'HOST': '',
+    
+           # Set to empty string for default
+           'PORT': '',
+       }
+    }
 
 
 # Password validation
@@ -155,8 +149,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
+
 
 LOGIN_REDIRECT_URL = '/'
 

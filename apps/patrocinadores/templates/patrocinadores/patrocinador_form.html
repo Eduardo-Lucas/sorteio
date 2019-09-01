@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% load bootstrap %}
+
 
 {% block content %}
 
@@ -22,7 +22,7 @@
     <div>
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        {{ form|bootstrap }}
+        {{ form }}
 
         <div class="form-group text-right">
             {% if object %}

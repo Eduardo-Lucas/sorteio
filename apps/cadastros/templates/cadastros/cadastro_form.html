@@ -1,16 +1,21 @@
 {% extends 'base.html' %}
 
-{% load bootstrap %}
+{# Load the tag library #}
+{% load bootstrap4 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
 
 {% block content %}
-
-
 
     <div class="container text-right">
         <a href="{% if user.is_authenticated %} {% url 'cadastro_list' %} {% else %} {% url 'home' %} {% endif %}" class="btn bn-sm btn-outline-primary">
            <i class="fas fa-arrow-alt-circle-left"></i> Voltar</a>
     </div>
-
 
       <div class="bg-danger text-light">
             {% if object %}
@@ -20,29 +25,17 @@
             {% endif %}
       </div>
 
-
     <div>
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
+        {% bootstrap_form form %}
 
-       {{ form.nome_completo|bootstrap }}
-       {{ form.email|bootstrap}}
-       {{ form.telefone|bootstrap}}
+        {% buttons %}
+            <button type="submit" class="btn btn-primary">
+                Gravar
+            </button>
+        {% endbuttons %}
 
-
-        <div class="row">
-            <div class="col-1" onclick="ligaBotao()">
-                {{ form.leitura|bootstrap}}
-            </div>
-            <div class="col-11">
-                Declaro que li e estou de acordo com o <a href="{% url 'regulamento' %}">Regulamento</a> e <a
-                    href="{% url 'politica' %}">Política de Privacidade</a>
-            </div>
-        </div>
-
-        <div class="container text-right">
-            <input type="submit"  class="btn btn-outline-primary" value="Gravar">
-        </div>
 
     </form>
     </div>
